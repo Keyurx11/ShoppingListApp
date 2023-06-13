@@ -10,20 +10,20 @@ public class ItemList {
 
    void addItem(String item) {
       shoppingList.add(item);
+      System.out.println("\nItem added to list.");
    }
 
    void removeItem() {
-      for (int i = 0; i < shoppingList.size(); i++) {
-         viewItem();
-         System.out.println(shoppingList.get(i));
-      }
-      System.out.println("Please enter the item you would like to remove: ");
+      viewItem();
+      System.out.println("Please enter the item number you would like to remove: ");
       int itemNumber = scanner.nextInt();
-      shoppingList.remove(itemNumber);
+      shoppingList.remove(itemNumber - 1);
+      System.out.println("\nItem removed successfully.");
    }
    void viewItem() {
       for (int i = 0; i < shoppingList.size(); i++) {
-         System.out.print(i);
+         System.out.print(i+1);
+         System.out.print(" - ");
          System.out.println(shoppingList.get(i));
       }
    }

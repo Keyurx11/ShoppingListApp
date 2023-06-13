@@ -6,7 +6,7 @@ public class Logic {
 
     static ItemList itemList = new ItemList();
 
-    public static void menu() {
+    public static void menu() throws InterruptedException {
         Scanner scanner = new Scanner(System.in);
         System.out.println();
         System.out.println("1 to add item to the shopping list");
@@ -15,18 +15,19 @@ public class Logic {
         System.out.print("Please select one of the above options: ");
         int userSelection = scanner.nextInt();
         if(userSelection == 1){
-            System.out.println("Please enter the item you would like to add: ");
-            
+            System.out.print("Please enter the item you would like to add: ");
+            String ignore = scanner.nextLine(); //ignore
             String item = scanner.nextLine();
             itemList.addItem(item);
+            menu();
         } else if(userSelection == 2){
             itemList.removeItem();
+            menu();
         } else if (userSelection == 3) {
             itemList.viewItem();
+            menu();
         }else {
-            System.out.println("Invalid selection, please try again!");
+            menu();
         }
-
-
     }
 }
