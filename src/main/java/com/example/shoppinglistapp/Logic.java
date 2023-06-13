@@ -14,19 +14,19 @@ public class Logic {
         System.out.println("3 to view items in the shopping list");
         System.out.print("Please select one of the above options: ");
         int userSelection = scanner.nextInt();
-        if(userSelection == 1){
+        if (userSelection == 1) {
             System.out.print("Please enter the item you would like to add: ");
             String ignore = scanner.nextLine(); //ignore
             String item = scanner.nextLine();
             itemList.addItem(item);
             menu();
-        } else if(userSelection == 2){
+        } else if (userSelection == 2) {
             itemList.removeItem();
             menu();
         } else if (userSelection == 3) {
             itemList.viewItem();
             menu();
-        }else {
+        } else {
             menu();
         }
     }
